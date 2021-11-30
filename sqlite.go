@@ -56,7 +56,11 @@ func (dialector Dialector) Initialize(db *gorm.DB) (err error) {
 	// https://www.sqlite.org/releaselog/3_35_0.html
 	if compareVersion(version, "3.35.0") >= 0 {
 		callbacks.RegisterDefaultCallbacks(db, &callbacks.Config{
-			CreateClauses:        []string{"INSERT", "VALUES", "ON CONFLICT", "RETURNING"},
+			// CreateClauses should support RETURNING, but for now there's a bug with foreign key pragma
+			// RETURNING will be added as soon as bug is fixed
+			// in case of Primary key, the generated SQLite ID is still accessible though,
+			// due to LastGeneratedID support golang sql package
+			CreateClauses:        []string{"INSERT", "VALUES", "ON CONFLICT"},
 			UpdateClauses:        []string{"UPDATE", "SET", "WHERE", "RETURNING"},
 			DeleteClauses:        []string{"DELETE", "FROM", "WHERE", "RETURNING"},
 			LastInsertIDReversed: true,
