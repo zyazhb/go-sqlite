@@ -24,8 +24,9 @@ func TestReadWhileWrite(t *testing.T) {
 	rows, err := DB.Table("users").Select("COALESCE(age,?)", "42").Rows()
 	if err != nil {
 		t.Fatalf("Failed, got error: %v", err)
+	} else {
+		defer rows.Close()
 	}
-	defer rows.Close()
 
 	// try write
 	if err := DB.Save(&user).Error; err != nil {
