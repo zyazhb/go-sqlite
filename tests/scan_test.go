@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestScan(t *testing.T) {

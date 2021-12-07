@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestUpdateMany2ManyAssociations(t *testing.T) {

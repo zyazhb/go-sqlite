@@ -6,6 +6,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	. "gorm.io/gorm/utils/tests"
 )
 
 type Config struct {

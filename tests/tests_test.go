@@ -10,25 +10,7 @@ import (
 	"github.com/glebarez/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"gorm.io/gorm/utils/tests"
-)
-
-type (
-	Toy           = tests.Toy
-	Pet           = tests.Pet
-	User          = tests.User
-	Language      = tests.Language
-	Company       = tests.Company
-	Account       = tests.Account
-	Coupon        = tests.Coupon
-	CouponProduct = tests.CouponProduct
-	Order         = tests.Order
-)
-
-var (
-	AssertEqual    = tests.AssertEqual
-	AssertObjEqual = tests.AssertObjEqual
-	Now            = tests.Now
+	. "gorm.io/gorm/utils/tests"
 )
 
 var DB *gorm.DB

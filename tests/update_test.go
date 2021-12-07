@@ -11,6 +11,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/utils"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestUpdate(t *testing.T) {

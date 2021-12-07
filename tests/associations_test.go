@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func AssertAssociationCount(t *testing.T, data interface{}, name string, result int64, reason string) {

@@ -4,11 +4,11 @@ import (
 	"regexp"
 	"strings"
 	"testing"
+	"time"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-
-	"time"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestRow(t *testing.T) {

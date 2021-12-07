@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestJoins(t *testing.T) {

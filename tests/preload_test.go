@@ -10,6 +10,7 @@ import (
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestPreloadWithAssociations(t *testing.T) {

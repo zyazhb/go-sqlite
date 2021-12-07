@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func NameIn1And2(d *gorm.DB) *gorm.DB {

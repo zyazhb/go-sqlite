@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"gorm.io/gorm"
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestMigrate(t *testing.T) {

@@ -2,6 +2,8 @@ package tests_test
 
 import (
 	"testing"
+
+	. "gorm.io/gorm/utils/tests"
 )
 
 type Hamster struct {

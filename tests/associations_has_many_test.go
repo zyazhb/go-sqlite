@@ -2,6 +2,8 @@ package tests_test
 
 import (
 	"testing"
+
+	. "gorm.io/gorm/utils/tests"
 )
 
 func TestHasManyAssociation(t *testing.T) {
