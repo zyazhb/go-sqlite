@@ -326,9 +326,7 @@ func TestFindInBatchesWithError(t *testing.T) {
 
 func TestFillSmallerStruct(t *testing.T) {
 	user := User{Name: "SmallerUser", Age: 100}
-	if err := DB.Save(&user).Error; err != nil {
-		t.Fatal(err)
-	}
+	DB.Save(&user)
 	type SimpleUser struct {
 		ID        int64
 		Name      string
@@ -384,9 +382,7 @@ func TestFillSmallerStruct(t *testing.T) {
 
 func TestFillSmallerStructWithAllFields(t *testing.T) {
 	user := User{Name: "SmallerUser", Age: 100}
-	if err := DB.Save(&user).Error; err != nil {
-		t.Fatal(err)
-	}
+	DB.Save(&user)
 	type SimpleUser struct {
 		ID        int64
 		Name      string
@@ -444,7 +440,7 @@ func TestNot(t *testing.T) {
 	if !regexp.MustCompile("SELECT \\* FROM .*users.* WHERE .*name.* IS NOT NULL").MatchString(result.Statement.SQL.String()) {
 		t.Fatalf("Build NOT condition, but got %v", result.Statement.SQL.String())
 	}
-
+	
 	result = dryDB.Not(map[string]interface{}{"name": []string{"jinzhu", "jinzhu 2"}}).Find(&User{})
 	if !regexp.MustCompile("SELECT \\* FROM .*users.* WHERE .*name.* NOT IN \\(.+,.+\\)").MatchString(result.Statement.SQL.String()) {
 		t.Fatalf("Build NOT condition, but got %v", result.Statement.SQL.String())
@@ -630,9 +626,7 @@ func TestPluck(t *testing.T) {
 
 func TestSelect(t *testing.T) {
 	user := User{Name: "SelectUser1"}
-	if err := DB.Save(&user).Error; err != nil {
-		t.Fatal(err)
-	}
+	DB.Save(&user)
 
 	var result User
 	DB.Where("name = ?", user.Name).Select("name").Find(&result)
@@ -677,10 +671,8 @@ func TestSelect(t *testing.T) {
 		t.Fatalf("Build Select with func, but got %v", r.Statement.SQL.String())
 	}
 
-	if rows, err := DB.Table("users").Select("COALESCE(age,?)", "42").Rows(); err != nil {
+	if _, err := DB.Table("users").Select("COALESCE(age,?)", "42").Rows(); err != nil {
 		t.Fatalf("Failed, got error: %v", err)
-	} else {
-		rows.Close()
 	}
 
 	r = dryDB.Select("u.*").Table("users as u").First(&User{}, user.ID)
@@ -696,9 +688,7 @@ func TestSelect(t *testing.T) {
 
 func TestOmit(t *testing.T) {
 	user := User{Name: "OmitUser1", Age: 20}
-	if err := DB.Save(&user).Error; err != nil {
-		t.Fatal(err)
-	}
+	DB.Save(&user)
 
 	var result User
 	DB.Where("name = ?", user.Name).Omit("name").Find(&result)
@@ -713,9 +703,7 @@ func TestOmit(t *testing.T) {
 
 func TestOmitWithAllFields(t *testing.T) {
 	user := User{Name: "OmitUser1", Age: 20}
-	if err := DB.Save(&user).Error; err != nil {
-		t.Error(err)
-	}
+	DB.Save(&user)
 
 	var userResult User
 	DB.Session(&gorm.Session{QueryFields: true}).Where("users.name = ?", user.Name).Omit("name").Find(&userResult)
