@@ -8,7 +8,7 @@ import (
 
 	"gorm.io/gorm/callbacks"
 
-	_ "modernc.org/sqlite"
+	_ "github.com/glebarez/go-sqlite"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
