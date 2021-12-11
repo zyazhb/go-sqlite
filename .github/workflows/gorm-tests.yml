@@ -23,23 +23,39 @@ jobs:
       with:
         go-version: ${{ matrix.go }}
 
-    - name: Check out code into the Go module directory
+    - name: Check out this repo
       uses: actions/checkout@v2
+      with:
+        path: sqlite
+        
+    - name: Check out GORM repo
+      uses: actions/checkout@v2
+      with:
+        repository: go-gorm/gorm
+        path: gorm
 
     - name: go mod package cache
       uses: actions/cache@v2
       with:
         path: ~/go/pkg/mod
-        key: ${{ runner.os }}-go-${{ matrix.go }}-${{ hashFiles('tests/go.mod') }}
+        key: ${{ runner.os }}-go-${{ matrix.go }}-${{ hashFiles('**/go.mod') }}
 
-    - name: run tests
-      working-directory: ./tests
-      run: go test -race -v -count=1 . > ${{ runner.os }}-${{ matrix.go }}-tests.out
-      
+    - name: patch gorm test to use this repo as SQLite driver
+      working-directory: ./gorm/tests
+      # note portable syntax of sed (both GNU and BSD version work with -i.bak cheat, see https://stackoverflow.com/a/44864004
+      run: |
+        sed -i.bak '/\sgorm.io\/driver\/sqlite.*/d' go.mod
+        echo "replace github.com/glebarez/sqlite => ../../sqlite/" >> go.mod
+        sed -i.bak 's/gorm.io\/driver\/sqlite/github.com\/glebarez\/sqlite/g' tests_test.go
+        go mod tidy
+    
+    - name: run gorm tests
+      working-directory: ./gorm/tests
+      run: go test -race -v -count=1 ./... > ${{ runner.os }}-${{ matrix.go }}-tests.out
+
     - name: save tests results
       if: ${{ always() }}
       uses: actions/upload-artifact@v2 
       with:
         name: ${{ runner.os }}-${{ matrix.go }}-tests.out
-        path: ./tests/${{ runner.os }}-${{ matrix.go }}-tests.out
-
+        path: ./gorm/tests/${{ runner.os }}-${{ matrix.go }}-tests.out

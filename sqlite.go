@@ -8,7 +8,7 @@ import (
 
 	"gorm.io/gorm/callbacks"
 
-	_ "modernc.org/sqlite"
+	_ "github.com/glebarez/go-sqlite"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -26,7 +26,7 @@ type Dialector struct {
 	Conn       gorm.ConnPool
 }
 
-func Open(dsn string) gorm.Dialector {
+func Open(dsn string, options ...Option) gorm.Dialector {
 	return &Dialector{DSN: dsn}
 }
 
