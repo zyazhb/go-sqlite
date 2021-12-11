@@ -13,14 +13,10 @@ The [standard GORM driver for SQLite](gorm.io/driver/sqlite) has one major drawb
 
 # FAQ
 ### Is this tested good ?
-Yes, The CI pipeline of this driver employs [whole test base](https://github.com/go-gorm/gorm/tree/master/tests) of GORM, which includes more than **12k** tests (see badge on the page-top). Tests are conducted in following environments:
+Yes, The CI pipeline of this driver employs [whole test base](https://github.com/go-gorm/gorm/tree/master/tests) of GORM, which includes more than **12k** tests (see badge on the page-top). Tests are conducted with latest major release of Go (1.17) in following environments:
 - Linux
 - Windows
 - MacOS
-
-and following versions of Go:
-- 1.16
-- 1.17
 
 ### SQLite is written in C, why don't we need a cgo ?
 This driver is based on pure-Go implementation of SQLite (https://gitlab.com/cznic/sqlite), which is basically an original SQLite C-source AST, translated into Go! So, you may be sure you're using the original SQLite implementation under the hood.
