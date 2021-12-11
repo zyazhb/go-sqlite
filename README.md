@@ -13,7 +13,7 @@ The [standard GORM driver for SQLite](gorm.io/driver/sqlite) has one major drawb
 
 # FAQ
 ### Is this tested good ?
-Yes, The CI pipeline of this driver employs [whole test base](https://github.com/go-gorm/gorm/tree/master/tests) of GORM, which includes for than **12k** tests (see badge on the page-top). Tests are conducted in following environments:
+Yes, The CI pipeline of this driver employs [whole test base](https://github.com/go-gorm/gorm/tree/master/tests) of GORM, which includes more than **12k** tests (see badge on the page-top). Tests are conducted in following environments:
 - Linux
 - Windows
 - MacOS
