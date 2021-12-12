@@ -7,6 +7,6 @@ require (
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/stretchr/testify v1.7.0
 	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
-	gorm.io/gorm v1.22.5-0.20211202023924-300a23fc3137
+	gorm.io/gorm v1.22.4
 	modernc.org/libc v1.11.100 // indirect
 )
