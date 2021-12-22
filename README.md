@@ -2,10 +2,10 @@
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/glebarez/fb4d23f63d866b3e1e58b26d2f5ed01f/raw/badge-sqlite-version.json)
 
 # Pure-Go GORM Sqlite driver
-Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io)<br>
+Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io/)<br>
 
 ## How is this better than standard GORM SQLite driver?
-The [standard GORM driver for SQLite](gorm.io/driver/sqlite) has one major drawback: it is based on a [Go-bindings of SQLite C-source](https://github.com/mattn/go-sqlite3) (this is called [cgo](https://go.dev/blog/cgo])). This fact imposes following restrictions on Go developers:
+The [standard GORM driver for SQLite](https://github.com/go-gorm/sqlite) has one major drawback: it is based on a [Go-bindings of SQLite C-source](https://github.com/mattn/go-sqlite3) (this is called [cgo](https://go.dev/blog/cgo)). This fact imposes following restrictions on Go developers:
 - to build and run your code, you will need a C compiler installed on a machine
 - SQLite has many features that need to be enabled at compile time (e.g. [json support](https://www.sqlite.org/json1.html)). If you plan to use those, you will have to include proper build tags for every ```go``` command to work properly (```go run```, ```go test```, etc.). Such tweaks may be easy to forget / hard to achieve (e.g. in automated environments like universal CI pipelines for Go)
 - Because of C-compiler requirement, you can't build your Go code inside tiny stripped containers like (golang-alpine)
