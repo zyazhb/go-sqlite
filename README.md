@@ -2,7 +2,8 @@
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/glebarez/fb4d23f63d866b3e1e58b26d2f5ed01f/raw/badge-sqlite-version.json)
 
 # Pure-Go SQLite driver for GORM
-Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io/)<br>
+Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io/)<br><br>
+This driver has SQLite embedded, you don't need to install one separately.
 
 ## How is this better than standard GORM SQLite driver?
 The [standard GORM driver for SQLite](https://github.com/go-gorm/sqlite) has one major drawback: it is based on a [Go-bindings of SQLite C-source](https://github.com/mattn/go-sqlite3) (this is called [cgo](https://go.dev/blog/cgo)). This fact imposes following restrictions on Go developers:
