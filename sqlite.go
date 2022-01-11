@@ -26,7 +26,7 @@ type Dialector struct {
 	Conn       gorm.ConnPool
 }
 
-func Open(dsn string, options ...Option) gorm.Dialector {
+func Open(dsn string) gorm.Dialector {
 	return &Dialector{DSN: dsn}
 }
 
