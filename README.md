@@ -1,7 +1,7 @@
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/glebarez/fb4d23f63d866b3e1e58b26d2f5ed01f/raw/badge-gorm-tests.json)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/glebarez/fb4d23f63d866b3e1e58b26d2f5ed01f/raw/badge-sqlite-version.json)
 
-# Pure-Go GORM Sqlite driver
+# Pure-Go SQLite driver for GORM
 Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io/)<br>
 
 ## How is this better than standard GORM SQLite driver?
