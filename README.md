@@ -24,7 +24,8 @@ Yes, The CI pipeline of this driver employs [whole test base](https://github.com
 Well, it's slower than CGo implementation, but not terribly. See the [bechmark of underlying pure-Go driver vs CGo implementation](https://github.com/glebarez/go-sqlite/tree/master/benchmark).
 
 ## Included features
-- JSON1 (https://www.sqlite.org/json1.html)
+-  JSON1 (https://www.sqlite.org/json1.html)
+-  Math functions (https://www.sqlite.org/lang_mathfunc.html)
 
 
 # Usage
