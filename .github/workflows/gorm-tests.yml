@@ -22,6 +22,8 @@ jobs:
       uses: actions/setup-go@v2.2.0
       with:
         go-version: ${{ matrix.go }}
+        check-latest: true
+    - run: go version
 
     - name: Check out this repo
       uses: actions/checkout@v2
