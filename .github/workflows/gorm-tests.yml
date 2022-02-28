@@ -52,11 +52,17 @@ jobs:
         sed -i.bak 's:gorm.io/driver/sqlite:github.com/glebarez/sqlite:g' tests_test.go
         go mod tidy
         cat go.mod
-    
+
     - name: run gorm tests
       working-directory: ./gorm/tests
       shell: bash
-      run: go test -race -v -count=1 ./... 2>&1 | tee ${{ runner.os }}-${{ matrix.go }}-tests.out | grep FAIL -A10 -B3 || true
+      run: go test -race -v -count=1 ./... 2>&1 > ${{ runner.os }}-${{ matrix.go }}-tests.out
+
+    - name: view failed tests result
+      if: ${{ failure() }}
+      working-directory: ./gorm/tests
+      shell: bash
+      run: grep FAIL -A10 -B3 ${{ runner.os }}-${{ matrix.go }}-tests.out || true
 
     - name: save tests results
       if: ${{ always() }}
