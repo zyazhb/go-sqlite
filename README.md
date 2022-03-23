@@ -5,6 +5,30 @@
 Pure-go (without cgo) implementation of SQLite driver for [GORM](https://gorm.io/)<br><br>
 This driver has SQLite embedded, you don't need to install one separately.
 
+# Usage
+
+```go
+import (
+  "github.com/glebarez/sqlite"
+  "gorm.io/gorm"
+)
+
+db, err := gorm.Open(sqlite.Open("sqlite.db"), &gorm.Config{})
+```
+
+### In-memory DB example
+```go
+db, err := gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
+```
+
+### Foreign-key constraint activation
+Foreign-key constraint is disabled by default in SQLite. To activate it, use connection URL parameter:
+```go
+db, err := gorm.Open(sqlite.Open(":memory:?_pragma=foreign_keys(1)"), &gorm.Config{})
+```
+More info: [https://www.sqlite.org/foreignkeys.html](https://www.sqlite.org/foreignkeys.html)
+
+# FAQ
 ## How is this better than standard GORM SQLite driver?
 The [standard GORM driver for SQLite](https://github.com/go-gorm/sqlite) has one major drawback: it is based on a [Go-bindings of SQLite C-source](https://github.com/mattn/go-sqlite3) (this is called [cgo](https://go.dev/blog/cgo)). This fact imposes following restrictions on Go developers:
 - to build and run your code, you will need a C compiler installed on a machine
@@ -31,28 +55,4 @@ Well, it's slower than CGo implementation, but not terribly. See the [bechmark o
 ## Included features
 -  JSON1 (https://www.sqlite.org/json1.html)
 -  Math functions (https://www.sqlite.org/lang_mathfunc.html)
-
-
-# Usage
-
-```go
-import (
-  "github.com/glebarez/sqlite"
-  "gorm.io/gorm"
-)
-
-db, err := gorm.Open(sqlite.Open("sqlite.db"), &gorm.Config{})
-```
-
-### In-memory DB example
-```go
-db, err := gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
-```
-
-### Foreign-key constraint activation
-Foreign-key constraint is disabled by default in SQLite. To activate it, use connection URL parameter:
-```go
-db, err := gorm.Open(sqlite.Open(":memory:?_pragma=foreign_keys(1)"), &gorm.Config{})
-```
-More info: [https://www.sqlite.org/foreignkeys.html](https://www.sqlite.org/foreignkeys.html)
 
