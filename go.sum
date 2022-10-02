@@ -1,6 +1,6 @@
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
-github.com/glebarez/go-sqlite v1.18.3 h1:zhT4actNGoZnW/2OvXsa8i95uqcF/ikbzr/wfBkHBXQ=
-github.com/glebarez/go-sqlite v1.18.3/go.mod h1:9AykawGIyIcxoSfpYWiX1SgTNHTNsa/FVc75cDkbp4M=
+github.com/glebarez/go-sqlite v1.19.1 h1:o2XhjyR8CQ2m84+bVz10G0cabmG0tY4sIMiCbrcUTrY=
+github.com/glebarez/go-sqlite v1.19.1/go.mod h1:9AykawGIyIcxoSfpYWiX1SgTNHTNsa/FVc75cDkbp4M=
 github.com/google/go-cmp v0.5.3/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
