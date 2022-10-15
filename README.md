@@ -55,4 +55,3 @@ Well, it's slower than CGo implementation, but not terribly. See the [bechmark o
 ## Included features
 -  JSON1 (https://www.sqlite.org/json1.html)
 -  Math functions (https://www.sqlite.org/lang_mathfunc.html)
-
