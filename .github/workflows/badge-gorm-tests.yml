@@ -19,7 +19,7 @@ jobs:
           path: .
       
       - name: Prepare badge data
-        working-directory: Linux-1.17-tests.out
+        working-directory: Linux-1.19-tests.out
         run: |
           echo "tests_passed=$(cat ./*.out | grep PASS | wc -l)" >> $GITHUB_ENV
           echo "tests_skipped=$(cat ./*.out | grep SKIP | wc -l)" >> $GITHUB_ENV
