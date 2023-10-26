@@ -243,6 +243,8 @@ func (dialector Dialector) Translate(err error) error {
 			return gorm.ErrDuplicatedKey
 		case sqlite3.SQLITE_CONSTRAINT_PRIMARYKEY:
 			return gorm.ErrDuplicatedKey
+		case sqlite3.SQLITE_CONSTRAINT_FOREIGNKEY:
+			return gorm.ErrForeignKeyViolated
 		}
 	}
 	return err
