@@ -9,7 +9,7 @@ This driver has SQLite embedded, you don't need to install one separately.
 
 ```go
 import (
-  "github.com/glebarez/sqlite"
+  "github.com/zyazhb/sqlite"
   "gorm.io/gorm"
 )
 
@@ -49,7 +49,7 @@ In following environments:
 - MacOS
 
 ## Is it fast?
-Well, it's slower than CGo implementation, but not terribly. See the [bechmark of underlying pure-Go driver vs CGo implementation](https://github.com/glebarez/go-sqlite/tree/master/benchmark).
+Well, it's slower than CGo implementation, but not terribly. See the [bechmark of underlying pure-Go driver vs CGo implementation](https://github.com/zyazhb/go-sqlite/tree/master/benchmark).
 
 ## Included features
 -  JSON1 (https://www.sqlite.org/json1.html)
